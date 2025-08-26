@@ -2,12 +2,13 @@
 // CAPOEIRA VIVA - SCRIPT.JS
 // =============================
 
-// === Menu responsivo ===
+//  Menu responsivo mobile
 const menuToggle = document.getElementById('menu-toggle');
 const navMenu = document.querySelector('.nav-menu');
 const header = document.querySelector('header');
 
 menuToggle.addEventListener('click', () => {
+  console.log('Menu clicado - Estado atual:', navMenu.classList.contains('active'));
   navMenu.classList.toggle('active');
   menuToggle.classList.toggle('active');
   // acessibilidade: aria-expanded
@@ -41,7 +42,7 @@ document.addEventListener('keydown', function(e) {
   }
 });
 
-// === Mudança do header (transparente enquanto hero visível; sólido ao rolar) ===
+// Mudança do header (transparente enquanto hero visível;
 const hero = document.querySelector('.hero');
 if (hero) {
   const heroObserver = new IntersectionObserver((entries) => {
@@ -58,7 +59,7 @@ if (hero) {
   heroObserver.observe(hero);
 }
 
-// === Rolagem suave para seções ===
+// Rolagem suave
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
     e.preventDefault();
@@ -89,7 +90,7 @@ faders.forEach(fader => {
 const carouselImages = document.querySelectorAll('.carousel-image');
 let currentIndex = 0;
 
-// Garante que só a primeira imagem está ativa ao carregar
+// Garante que só a primeira imagem alí ao carregar
 carouselImages.forEach((img, i) => {
   img.classList.toggle('active', i === 0);
 });
@@ -120,7 +121,7 @@ window.addEventListener('scroll', () => {
 btnTopo.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
-// === Carrossel de imagens com botões de navegação ===
+// Carrossel de imagens com botões de navegação
 const carrossel = document.querySelector('.carrossel');
 const items = document.querySelectorAll('.carrossel-item');
 const prevBtn = document.querySelector('.prev');
@@ -135,7 +136,7 @@ function updateCarrossel() {
 
 // Botão voltar
 prevBtn.addEventListener('click', () => {
-  index = (index - 1 + totalItems) % totalItems; // agora funciona corretamente
+  index = (index - 1 + totalItems) % totalItems; // agora funciona direito
   updateCarrossel();
 });
 
