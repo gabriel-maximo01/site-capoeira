@@ -13,7 +13,7 @@ body {
   flex-direction: column;
 }
 
-/* === Importante: antes de usar, lembra de incluir as fontes no HTML:
+/* Importante! antes de usar, lembra de incluir as fontes no HTML:
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&family=Saira+Condensed&display=swap" rel="stylesheet" />
 */
 
@@ -22,7 +22,7 @@ body {
   font-family: 'Roboto', 'Open Sans', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #F5E9DA;
+  background-color: #f5e9da;
   color: #1C1C1C;
   line-height: 1.6;
   padding-top: 80px;
@@ -34,21 +34,29 @@ main {
 
 footer, .rodape {
   flex-shrink: 0;
-  margin-top: 0; /* Rodapé colado no final */
+  margin-top: 0; /* Rodapé sempre  no final */
 }
 
 .img-ajustada {
  display: block;              /* evita que fique com espaços estranhos */
-  margin: 20px auto;           /* centraliza horizontalmente e dá respiro */
-  max-width: 50%;              /* ocupa no máximo 90% da largura da tela */
+  margin: 20px auto;           /* centraliza horizontalmente e dá um espaço +/- */
+  max-width: 60%;              /* ocupa no máximo 90% da largura da tela */
   height: auto;                /* mantém a proporção */
   border-radius: 12px;         /* cantos arredondados */
   box-shadow: 0 4px 12px rgba(0,0,0,0.25); /* sombra suave */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.5s ease;
+  filter: brightness(0.95);
 }
 .img-ajustada:hover {
   transform: scale(1.03); /* zoom */
   box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+  filter: brightness(1.05);
+}
+
+.img-ajustada:hover {
+  transform: scale(1.03) rotate(1deg);
+  box-shadow: var(--shadow-hover);
+  filter: brightness(1.05);
 }
 
 /* Efeito ao passar o mouse */
@@ -57,12 +65,12 @@ footer, .rodape {
   box-shadow: 0 6px 18px rgba(0,0,0,0.35);
 }
 
-/* Remove o padding-top do body apenas na home */
+/* Remove o padding-top do body so na home */
 body.home {
   padding-top: 0 !important;
 }
 
-/* === Botão voltar ao topo === */
+/* Botão voltar ao top */
 .btn-topo {
   position: fixed;
   right: 24px;
@@ -89,7 +97,7 @@ body.home {
   transform: scale(1.08);
 }
 
-/* === Container padrão === */
+/* Container padrão */
 .container {
   width: 90%;
   max-width: 1200px;
@@ -104,7 +112,7 @@ body.home {
   gap: 1rem;
 }
 
-/* === Cabeçalho === */
+/* Cabeçalho (pra não falar palavrão) */
 header {
   background: transparent;
   color: white;
@@ -168,7 +176,7 @@ header.scrolled .logo {
   text-shadow: 1px 1px 2px rgba(0,0,0,0.25);
 }
 
-/* Underline animado no hover */
+/* Underline animado */
 .nav-menu li a::after {
   content: "";
   position: absolute;
@@ -188,7 +196,7 @@ header.scrolled .logo {
   width: 100%;
 }
 
-/* === Acessibilidade: foco visível === */
+/* Acessibilidade: foco no visível */
 .btn:focus, .nav-menu li a:focus {
   outline: 2px solid #FFC107;
   outline-offset: 2px;
@@ -248,7 +256,7 @@ header.scrolled .logo {
   transform: rotate(-45deg);
 }
 
-/* === HERO === */
+/*  HERO (que não é super heroi) */
 .hero {
   position: relative;
   padding: 0;
@@ -274,7 +282,7 @@ header.scrolled .logo {
   pointer-events: none;
 }
 
-/* Container para as imagens do carrossel */
+/* Container pra imagens do carrossel */
 .hero-carousel {
   position: absolute;
   top: 0;
@@ -285,7 +293,7 @@ header.scrolled .logo {
   overflow: hidden;
 }
 
-/* === Carrossel de imagens com fade e zoom === */
+/* Carrossel de imagens com efeitinho de zoom */
 .carousel-image {
   position: absolute;
   top: 0; left: 0; width: 100%; height: 100%;
@@ -303,7 +311,7 @@ header.scrolled .logo {
   transform: scale(1);
 }
 
-/* Conteúdo da hero acima das imagens */
+/* Conteúdo da hero acima pra ficar em cima */
 .hero .container {
   position: relative;
   z-index: 1;
@@ -311,18 +319,19 @@ header.scrolled .logo {
 }
 
 .hero h1 {
-  font-size: 3rem;
+  font-size: 4rem;
   margin-bottom: 1rem;
   text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
 }
 
 .hero p {
+  color: #fcf8f8;
   max-width: 700px;
   margin: 0 auto 2rem;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-size: 1.2rem;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.25);
+  text-shadow: 4px 4px 5px rgba(0,0,0,0.25);
 }
 
 .cta-buttons {
@@ -357,12 +366,26 @@ section {
 }
 
 h2 {
-  font-family: 'Saira Condensed', sans-serif;
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
+  font-family:'Saira Condensed', sans-serif;
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  margin-bottom: 2.5rem;
   text-align: center;
   color: #B71C1C;
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #B71C1C, #FFC107);
+  border-radius: 2px;
 }
 
 .subsecao {
@@ -372,8 +395,22 @@ h2 {
 .subsecao h3 {
   color: #7f1212;
   font-size: 1.8rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
   font-family: 'Saira Condensed', sans-serif;
+  position: relative;
+  padding-left: 15px;
+}
+
+.subsecao h3::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 70%;
+  width: 5px;
+  background-color: #B71C1C;
+  border-radius: 3px;
 }
 
 .subsecao ul {
@@ -392,7 +429,7 @@ h2 {
   margin-top: 1rem;
 }
 
-/* === Introdução === */
+/* Intro intruduzir -_-*/
 .intro {
   background-color: #F5E9DA;
   animation: fadeInUp 0.8s ease-in;
@@ -415,7 +452,7 @@ footer {
   font-family: 'Saira Condensed', sans-serif;
 }
 
-/* === Animações === */
+/*  Animações  */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -432,15 +469,16 @@ footer {
   }
 }
 
-/* === Classe com fade-in com scroll === */
+/* fade-in com scroll  */
 .fade-in {
   animation: fadeInUp 0.8s ease-in forwards;
   animation-play-state: paused;
 }
 
 /* === Responsividade === */
+/* Responsividade - Menu Hamburguer */
 @media (max-width: 768px) {
-  nav {
+  .nav-menu {
     display: none;
   }
 
@@ -448,21 +486,47 @@ footer {
     display: block;
   }
 
-  .nav-menu {
+.nav-menu {
     flex-direction: column;
     background-color: #B71C1C;
-    position: absolute;
-    top: 100%;
+    position: fixed;
+    top: 80px; /* Header tem 80px quando não scrolled */
     right: 0;
     left: 0;
     display: none;
     padding: 1rem 0;
-  }
+    z-index: 2000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    height: calc(100vh - 80px);
+    overflow-y: auto;
+}
+
+/* Quando header está scrolled (60px) */
+header.scrolled ~ .nav-menu {
+    top: 60px;
+    height: calc(100vh - 60px);
+}
 
   .nav-menu.active {
-    display: flex;
+    display: flex; /* Mostra quando tá ativo */
   }
 
+  .nav-menu li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-menu li a {
+    display: block;
+    padding: 1rem;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .nav-menu li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
   .cta-buttons {
     flex-direction: column;
     align-items: center;
@@ -597,16 +661,26 @@ footer {
     background-color: #B71C1C;
     color: #FFC107;
     text-align: center;
-    padding: 1.5rem 1rem;
+    padding: 2rem 1rem;
     font-size: 0.9rem;
-    margin-top: 0; /* Rodapé colado no final */
+    margin-top: 0; /* Rodapé colado no final (gambiarra)*/
   }
+
+  .rodape::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #FFC107 , #B71C1C);
+}
 
   .rodape p {
     margin: 0.3rem 0;
   }
 
-  /* Botão voltar ao topo responsivo */
+  /* Botão voltar ao topo do responsivo */
   .btn-topo {
     right: 12px;
     bottom: 12px;
@@ -614,7 +688,9 @@ footer {
     height: 44px;
     font-size: 1.5rem;
   }
-}.carrossel-container {
+
+}
+  .carrossel-container {
   position: relative;
   width: 100%;
   max-width: 900px;
@@ -667,7 +743,7 @@ footer {
   max-width: 400px;     /* evita que fique gigante */
   width: 100%;          /* adapta no celular */
   height: auto;         /* mantém proporção */          /* joga a imagem pra esquerda */
-  margin: 0 20px 20px 0; /* espaço à direita e embaixo pra não grudar no texto */
+  margin: 0 20px 20px 0; /* espaço a direita e embaixo pra não grudar no texto */
   border-radius: 5px;   /* cantos arredondados */
   box-shadow: 0 4px 10px rgba(0,0,0,0.25); /* sombrazinha suave */
   
@@ -703,8 +779,13 @@ footer {
 }
 
 .depoimento-mestre, .card-depoimento {
-  text-align: center;
-  margin: 2rem 0;
+ text-align: center;
+  margin: 2.5rem 0;
+  padding: 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
 }
 .depoimento-mestre img, .card-depoimento img {
   max-width: 180px;
@@ -717,13 +798,37 @@ footer {
   box-shadow: 0 6px 18px rgba(0,0,0,0.35);
 }
 .texto-depoimento blockquote {
-  font-style: italic;
+    font-style: italic;
   color: #444;
   margin-bottom: 0.5rem;
+  line-height: 1.7;
+  position: relative;
+  padding: 0 2rem;
 }
+
+.texto-depoimento blockquote::before,
+.texto-depoimento blockquote::after {
+  content: '"';
+  font-size: 3rem;
+  color: #B71C1C;
+  opacity: 0.2;
+  position: absolute;
+  line-height: 1;
+}
+
+.texto-depoimento blockquote::before {
+  top: -10px;
+  left: 0;
+}
+
+.texto-depoimento blockquote::after {
+  bottom: -30px;
+  right: 0;
+}
+
 .instagram-container {
   margin: 20px 0;
-  text-align: left; /* garante que fique à esquerda */
+  text-align: left; /* garante que fique para esquerda */
 }
 
 .instagram-container blockquote.instagram-media {
@@ -742,7 +847,7 @@ footer {
 #contato h2 {
   font-size: 2rem;
   margin-bottom: 15px;
-  color: #222;
+  color: #B71C1C;
 }
 
 #contato p {
@@ -772,6 +877,17 @@ footer {
   margin-top: 20px;
 }
 
+#contato .redes-sociais a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
+}
 #contato .redes-sociais a svg {
   width: 48px;
   height: 48px;
@@ -789,4 +905,3 @@ footer {
   color: #555;
   margin-top: 8px;
 }
-
