@@ -483,10 +483,12 @@ footer {
   .card-depoimento {
     max-height: 300px;
     overflow-y: auto;
-    -webkit-overflow-scrolling: touch; /* Melhora a rolagem no iOS */
+    -webkit-overflow-scrolling: touch;
     padding: 1rem;
     margin: 1.5rem 0;
     position: relative;
+    text-align: justify; /* Adicionado para melhor distribuição do texto */
+    hyphens: auto; /* Hifenização automática para melhor quebra */
   }
   
   .card-depoimento img.foto-mestre {
@@ -496,10 +498,19 @@ footer {
   }
   
   .texto-depoimento blockquote {
-    padding: 0 1rem;
-    font-size: 0.9rem;
-    line-height: 1.5;
+    padding: 0;
+    font-size: 0.95rem; /* Aumentado ligeiramente */
+    line-height: 1.6; /* Aumentado para melhor legibilidade */
     margin-bottom: 1rem;
+    text-align: justify; /* Justificar texto */
+    word-spacing: normal; /* Garantir espaçamento normal entre palavras */
+    hyphens: auto; /* Hifenização automática */
+  }
+  
+  /* Melhorar a quebra de palavras longas */
+  .texto-depoimento {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
   }
   
   /* Indicador visual de que há mais conteúdo para scroll */
@@ -515,13 +526,18 @@ footer {
   }
 }
 
-/* Para telas muito pequenas, altura ainda menor */
+/* Para telas muito pequenas, ajustes adicionais */
 @media (max-width: 480px) {
   .card-depoimento {
     max-height: 250px;
+    padding: 0.8rem;
+  }
+  
+  .texto-depoimento blockquote {
+    font-size: 0.9rem;
+    line-height: 1.5;
   }
 }
-
 @media (max-width: 768px) {
   .nav-menu {
     display: none;
