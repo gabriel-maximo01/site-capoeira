@@ -55,7 +55,6 @@ footer, .rodape {
 
 .img-ajustada:hover {
   transform: scale(1.03) rotate(1deg);
-  box-shadow: var(--shadow-hover);
   filter: brightness(1.05);
 }
 
@@ -477,22 +476,21 @@ footer {
 }
 
 /* === Responsividade === */
-
-/* Responsividade - Menu Hamburguer e depoimento mobile*/
-
+/* Responsividade - Menu Hamburguer */
+/* === RESPONSIVIDADE - DEPOIMENTOS MOBILE === */
 @media (max-width: 768px) {
   .card-depoimento {
     max-height: 300px;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
-    padding: 1.2rem;
+    padding: 1rem;
     margin: 1.5rem 0;
     position: relative;
     text-align: justify;
     hyphens: auto;
-    /* melhora o layout */
-    word-spacing: -0.05em; /* melhora +/- o espaçamento entre palavras */
-    text-rendering: optimizeLegibility; /* melhora renderização do texto */
+    /* Ajustes específicos para melhorar o texto */
+    word-spacing: -0.05em;
+    text-rendering: optimizeLegibility;
   }
   
   .card-depoimento img.foto-mestre {
@@ -508,27 +506,17 @@ footer {
     margin-bottom: 1rem;
     text-align: justify;
     hyphens: auto;
-    /* ajuste para melhor ocupação do espaço (gambiarra) */
+    /* Ajustes para melhor ocupação do espaço */
     word-spacing: -0.05em;
-    text-rendering: optimizeLegibility;
-    /* limita o comprimento mínimo da linha */
-    min-width: 0;
   }
   
   /* Melhorar a quebra de palavras longas */
   .texto-depoimento {
     overflow-wrap: break-word;
     word-wrap: break-word;
-    padding-right: 5px;
   }
   
-  /* ajusta as aspas para não interferir no texto */
-  .texto-depoimento blockquote::before,
-  .texto-depoimento blockquote::after {
-    font-size: 2.5rem; 
-  }
-  
-  /* Indicador visual de quetem mais conteúdo para scroll (pq todo o usuário é burro)*/
+  /* Indicador visual de que há mais conteúdo para scroll */
   .card-depoimento::after {
     content: "";
     position: absolute;
@@ -539,30 +527,7 @@ footer {
     background: linear-gradient(to bottom, transparent, white 80%);
     pointer-events: none;
   }
-}
-
-/* Para telas muito pequenas */
-@media (max-width: 480px) {
-  .card-depoimento {
-    max-height: 250px;
-    padding: 1rem;
-    margin-left: -5px;
-    margin-right: -5px;
-    width: calc(100% + 10px);
-  }
   
-  .texto-depoimento blockquote {
-    font-size: 0.9rem;
-    line-height: 1.5;
-    word-spacing: -0.03em;
-  }
-  
-  .texto-depoimento blockquote::before,
-  .texto-depoimento blockquote::after {
-    font-size: 2rem;
-  }
-}
-@media (max-width: 768px) {
   .nav-menu {
     display: none;
   }
@@ -575,7 +540,7 @@ footer {
     flex-direction: column;
     background-color: #B71C1C;
     position: fixed;
-    top: 80px; /* Header tem 80px se não for scrollado */
+    top: 80px; /* Header tem 80px quando não scrolled */
     right: 0;
     left: 0;
     display: none;
@@ -586,14 +551,14 @@ footer {
     overflow-y: auto;
   }
 
-  /* quando header tá scrollado 60px */
+  /* Quando header está scrolled (60px) */
   header.scrolled ~ .nav-menu {
     top: 60px;
     height: calc(100vh - 60px);
   }
 
   .nav-menu.active {
-    display: flex; /* quando tá ativo */
+    display: flex; /* Mostra quando tá ativo */
   }
 
   .nav-menu li {
@@ -772,6 +737,19 @@ footer {
     width: 44px;
     height: 44px;
     font-size: 1.5rem;
+  }
+}
+
+/* Para telas muito pequenas, ajustes adicionais */
+@media (max-width: 480px) {
+  .card-depoimento {
+    max-height: 250px;
+    padding: 0.8rem;
+  }
+  
+  .texto-depoimento blockquote {
+    font-size: 0.9rem;
+    line-height: 1.5;
   }
 }
 
@@ -990,3 +968,4 @@ footer {
   color: #555;
   margin-top: 8px;
 }
+</style>
