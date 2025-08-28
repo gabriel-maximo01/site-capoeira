@@ -143,6 +143,7 @@ header.scrolled {
   max-width: 100%;
   object-fit: contain;
   transition: height 0.3s;
+  border-radius: 5px;
 }
 
 header.scrolled .logo {
@@ -478,6 +479,48 @@ footer {
 /* === Responsividade === */
 /* Responsividade - Menu Hamburguer */
 @media (max-width: 768px) {
+  .card-depoimento {
+    max-height: 300px; /* Altura máxima */
+    overflow-y: auto; /* Scroll interno quando necessário */
+    padding: 1rem;
+    margin: 1.5rem 0;
+    position: relative;
+  }
+  
+  .card-depoimento img.foto-mestre {
+    max-width: 100px;
+    margin: 0 auto 1rem;
+    display: block;
+  }
+  
+  .texto-depoimento blockquote {
+    padding: 0 1rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+  
+  /* Indicador visual de que há mais conteúdo para scroll */
+  .card-depoimento::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 30px;
+    background: linear-gradient(to bottom, transparent, white 80%);
+    pointer-events: none;
+  }
+}
+
+/* Para telas muito pequenas, altura ainda menor */
+@media (max-width: 480px) {
+  .card-depoimento {
+    max-height: 250px;
+  }
+}
+
+@media (max-width: 768px) {
   .nav-menu {
     display: none;
   }
@@ -486,7 +529,7 @@ footer {
     display: block;
   }
 
-.nav-menu {
+  .nav-menu {
     flex-direction: column;
     background-color: #B71C1C;
     position: fixed;
@@ -499,13 +542,13 @@ footer {
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     height: calc(100vh - 80px);
     overflow-y: auto;
-}
+  }
 
-/* Quando header está scrolled (60px) */
-header.scrolled ~ .nav-menu {
+  /* Quando header está scrolled (60px) */
+  header.scrolled ~ .nav-menu {
     top: 60px;
     height: calc(100vh - 60px);
-}
+  }
 
   .nav-menu.active {
     display: flex; /* Mostra quando tá ativo */
@@ -667,14 +710,14 @@ header.scrolled ~ .nav-menu {
   }
 
   .rodape::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background: linear-gradient(90deg, #FFC107 , #B71C1C);
-}
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #FFC107 , #B71C1C);
+  }
 
   .rodape p {
     margin: 0.3rem 0;
@@ -688,9 +731,9 @@ header.scrolled ~ .nav-menu {
     height: 44px;
     font-size: 1.5rem;
   }
-
 }
-  .carrossel-container {
+
+.carrossel-container {
   position: relative;
   width: 100%;
   max-width: 900px;
@@ -779,7 +822,7 @@ header.scrolled ~ .nav-menu {
 }
 
 .depoimento-mestre, .card-depoimento {
- text-align: center;
+  text-align: center;
   margin: 2.5rem 0;
   padding: 2rem;
   background: white;
@@ -798,7 +841,7 @@ header.scrolled ~ .nav-menu {
   box-shadow: 0 6px 18px rgba(0,0,0,0.35);
 }
 .texto-depoimento blockquote {
-    font-style: italic;
+  font-style: italic;
   color: #444;
   margin-bottom: 0.5rem;
   line-height: 1.7;
