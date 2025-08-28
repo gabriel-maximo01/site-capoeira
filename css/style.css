@@ -478,10 +478,12 @@ footer {
 
 /* === Responsividade === */
 /* Responsividade - Menu Hamburguer */
+/* === RESPONSIVIDADE - DEPOIMENTOS MOBILE === */
 @media (max-width: 768px) {
   .card-depoimento {
-    max-height: 300px; /* Altura máxima */
-    overflow-y: auto; /* Scroll interno quando necessário */
+    max-height: 300px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch; /* Melhora a rolagem no iOS */
     padding: 1rem;
     margin: 1.5rem 0;
     position: relative;
