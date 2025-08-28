@@ -70,7 +70,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// === Animações para rolar a página ===
+// Animações para rolar a página 
 const faders = document.querySelectorAll('.fade-in');
 const appearOnScroll = new IntersectionObserver((entries, observer) => {
   entries.forEach(entry => {
@@ -86,11 +86,11 @@ faders.forEach(fader => {
   appearOnScroll.observe(fader);
 });
 
-// === CARROSSEL SIMPLES COM FADE E ZOOM ===
+// CARROSSEL SIMPLES COM FADE E ZOOM 
 const carouselImages = document.querySelectorAll('.carousel-image');
 let currentIndex = 0;
 
-// Garante que só a primeira imagem alí ao carregar
+// garante que so a primeira imagem ali ao carregar
 carouselImages.forEach((img, i) => {
   img.classList.toggle('active', i === 0);
 });
@@ -106,7 +106,7 @@ if (carouselImages.length > 1) {
   setInterval(showNextImage, 5000);
 }
 
-// === Botão "voltar ao topo" ===
+// Botão "voltar ao topo"
 const btnTopo = document.createElement('button');
 btnTopo.innerHTML = '↑';
 btnTopo.setAttribute('aria-label', 'Voltar ao topo');
@@ -144,4 +144,79 @@ prevBtn.addEventListener('click', () => {
 nextBtn.addEventListener('click', () => {
   index = (index + 1) % totalItems;
   updateCarrossel();
+});
+
+// SWIPER CAPOEIRA (o treco das fotinhas)
+
+document.addEventListener('DOMContentLoaded', function() {
+  // verificar se o Swiper esta carregado
+  if (typeof Swiper === 'undefined') {
+    console.error('Swiper não foi carregado corretamente');
+    // carregar Swiper dinamicamente se não estiver disponível
+    loadSwiperScript();
+  } else {
+    initSwiper();
+  }
+  
+  function loadSwiperScript() {
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js';
+    script.onload = initSwiper;
+    document.head.appendChild(script);
+    
+    // Também carregar o CSS se necessário
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css';
+    document.head.appendChild(link);
+  }
+  
+  function initSwiper() {
+    const swiperContainer = document.querySelector('.swiper-capoeira-container');
+    
+    if (!swiperContainer) {
+      console.error('Container do Swiper não encontrado');
+      return;
+    }
+    
+    // Inicia o Swiper
+    const swiperCapoeira = new Swiper('.swiper-capoeira-container', {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      loop: true,
+      autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: '.capoeira-swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.capoeira-swiper-button-next',
+        prevEl: '.capoeira-swiper-button-prev',
+      },
+      breakpoints: {
+        640: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+        },
+      },
+    });
+    
+    // Pausa 0 autoplay quando o mouse tiver no swiper
+    swiperContainer.addEventListener('mouseenter', function() {
+      swiperCapoeira.autoplay.stop();
+    });
+    
+    swiperContainer.addEventListener('mouseleave', function() {
+      swiperCapoeira.autoplay.start();
+    });
+    
+    console.log('Swiper inicializado com sucesso');
+  }
 });

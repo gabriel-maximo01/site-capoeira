@@ -330,7 +330,7 @@ header.scrolled .logo {
   margin: 0 auto 2rem;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   text-shadow: 4px 4px 5px rgba(0,0,0,0.25);
 }
 
@@ -367,7 +367,7 @@ section {
 
 h2 {
   font-family:'Saira Condensed', sans-serif;
-  font-size: clamp(2rem, 5vw, 2.8rem);
+  font-size: clamp(4rem, 5vw, 2.8rem);
   margin-bottom: 2.5rem;
   text-align: center;
   color: #B71C1C;
@@ -392,10 +392,15 @@ h2::after {
   margin-bottom: 3rem;
 }
 
+.subsecao  p {
+  font-size: 1.3rem;
+}
+
+
 .subsecao h3 {
   color: #7f1212;
-  font-size: 1.8rem;
-  margin-bottom: 1.2rem;
+  font-size: 2.8rem;
+  margin-bottom: 1.3rem;
   font-family: 'Saira Condensed', sans-serif;
   position: relative;
   padding-left: 15px;
@@ -416,7 +421,7 @@ h2::after {
 .subsecao ul {
   padding-left: 1.5rem;
   list-style: disc;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
 }
 
 .subsecao ul li {
@@ -439,7 +444,7 @@ h2::after {
 
 .intro p {
   margin-bottom: 1rem;
-  font-size: 1.1rem;
+  font-size: 1.5rem;
 }
 
 /* === Rodapé === */
@@ -466,6 +471,28 @@ footer {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
   }
 }
 
@@ -542,23 +569,34 @@ footer {
     position: fixed;
     top: 80px; /* Header tem 80px quando não scrolled */
     right: 0;
-    left: 0;
-    display: none;
+    left: auto; /* Alterado para sair da direita */
+    width: 80%; /* Ocupa 80% da largura da tela */
+    max-width: 320px;
+    display: flex;
     padding: 1rem 0;
     z-index: 2000;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    box-shadow: -4px 0 12px rgba(0,0,0,0.2);
     height: calc(100vh - 80px);
     overflow-y: auto;
+    transform: translateX(100%); /* Inicia fora da tela */
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    opacity: 0;
+  }
+
+  .nav-menu.active {
+    transform: translateX(0); /* Entra na tela */
+    opacity: 1;
+    animation: slideInRight 0.4s ease forwards;
+  }
+
+  .nav-menu.closing {
+    animation: slideOutRight 0.4s ease forwards;
   }
 
   /* Quando header está scrolled (60px) */
   header.scrolled ~ .nav-menu {
     top: 60px;
     height: calc(100vh - 60px);
-  }
-
-  .nav-menu.active {
-    display: flex; /* Mostra quando tá ativo */
   }
 
   .nav-menu li {
@@ -635,7 +673,7 @@ footer {
   }
 
   .card-noticia h3 {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     margin: 1rem;
     color: #B71C1C;
   }
@@ -908,13 +946,13 @@ footer {
 }
 
 #contato h2 {
-  font-size: 2rem;
+  font-size: 4rem;
   margin-bottom: 15px;
   color: #B71C1C;
 }
 
 #contato p {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   margin-bottom: 10px;
   color: #444;
 }
@@ -968,4 +1006,177 @@ footer {
   color: #555;
   margin-top: 8px;
 }
-</style>
+
+/* fotinhas*/
+.swiper-capoeira {
+  padding: 4rem 0;
+  background: #f5e9da; /* mesmo fundo do site */
+}
+
+.swiper-container {
+  width: 100%;
+  padding: 20px 0 50px;
+  overflow: hidden;
+}
+
+.swiper-wrapper {
+  padding: 20px 0;
+}
+
+.swiper-slide {
+  height: auto; /*permite que as alturas se ajustem */
+  display: flex;
+}
+
+.slide-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%; /* ocupa toda a altura do slide */
+  display: flex;
+  flex-direction: column;
+  width: 100%; /* garante que ocupe toda a largura */
+}
+
+.slide-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.slide-image {
+  width: 100%;
+  height: 220px; /* Altura pra imagens */
+  object-fit: cover; /* mantem proporcao e preenche o espaço */
+}
+
+.slide-content {
+  padding: 20px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.slide-content h3 {
+  margin-top: 0;
+  color: #B71C1C;
+  font-size: 1.4rem;
+  font-family: 'Bebas Neue', cursive;
+  min-height: 3rem; /* Altura minima pra títulos */
+}
+
+.slide-content p {
+  flex-grow: 1;
+  margin-bottom: 20px;
+  color: #333;
+  min-height: 4.5rem; /* Altura minima para parágrafos */
+}
+
+.slide-btn {
+  display: inline-block;
+  background-color: #B71C1C;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  margin-top: auto; /* Empurra o botão para baixo */
+
+}
+
+.slide-btn:hover {
+  background-color: #8B0000;
+}
+
+/* Navegação do Swiper */
+.capoeira-swiper-button-next,
+.capoeira-swiper-button-prev {
+  color: #B71C1C !important;
+  background: rgba(255, 255, 255, 0.8);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+/* animação para os botões de navegação */
+.capoeira-swiper-button-next:hover,
+.capoeira-swiper-button-prev:hover {
+  transform: scale(1.15);
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 15px rgba(183, 28, 28, 0.3);
+}
+
+.capoeira-swiper-button-next:active,
+.capoeira-swiper-button-prev:active {
+  transform: scale(0.95);
+}
+
+.capoeira-swiper-button-next:after,
+.capoeira-swiper-button-prev:after {
+  font-size: 24px;
+  font-weight: bold;
+  transition: transform 0.2s ease;
+}
+
+.capoeira-swiper-button-next:hover:after {
+  transform: translateX(2px);
+}
+
+.capoeira-swiper-button-prev:hover:after {
+  transform: translateX(-2px);
+}
+
+.capoeira-swiper-pagination .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background: #B71C1C;
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+
+.capoeira-swiper-pagination .swiper-pagination-bullet:hover {
+  transform: scale(1.2);
+  opacity: 0.8;
+}
+
+.capoeira-swiper-pagination .swiper-pagination-bullet-active {
+  opacity: 1;
+  transform: scale(1.3);
+}
+
+/* remover espaçamento entre carrossel e swiper */
+.plataforma + .swiper-capoeira {
+  padding-top: 0 !important;
+  margin-top: -2rem !important;
+}
+
+/* ajusta posicionamento do titulo do swiper */
+.swiper-capoeira h2 {
+  margin-top: 0;
+  padding-top: 1.5rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .slide-image {
+    height: 180px;
+  }
+  
+  .slide-content h3 {
+    min-height: auto; /* remove altura minima mobile */
+  }
+  
+  .slide-content p {
+    min-height: auto; /* remove altura minima mobile */
+  }
+  
+  .capoeira-swiper-button-next,
+  .capoeira-swiper-button-prev {
+    display: none;
+  }
+}
