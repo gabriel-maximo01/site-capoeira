@@ -10,11 +10,14 @@
   <script defer src="js/script.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu&family=Bebas+Neue&family=Roboto&family=Saira+Condensed&display=swap" rel="stylesheet" />
   <link rel="icon" href="assets/logo-teste.ico" type="image/png" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 </head>
+
 <body class="home">
   <header>
     <div class="container header-container">
-      <img src="assets/logo-capoeira-viva.jpg" alt="Logo do projeto Capoeira Viva" class="logo" />
+      <img src="assets/IMG/logo-capoeira-viva.jpg" alt="Logo do projeto Capoeira Viva" class="logo" />
       <nav aria-label="Menu principal">
         <ul class="nav-menu">
           <li><a href="#topo">Início</a></li>
@@ -35,9 +38,9 @@
 
     <section class="hero fade-in">
       <div class="hero-carousel" aria-hidden="true">
-        <img src="assets/img-capoeira1.jpg" alt="Roda de capoeira em Ponte Nova" class="carousel-image active" />
-        <img src="assets/img-capoeira2.jpg" alt="Apresentação de capoeira" class="carousel-image" />
-        <img src="assets/img-capoeira3.jpg" alt="Crianças praticando capoeira" class="carousel-image" />
+        <img src="assets/IMG/img-capoeira1.jpg" alt="Roda de capoeira em Ponte Nova" class="carousel-image active" />
+        <img src="assets/IMG/img-capoeira2.jpg" alt="Apresentação de capoeira" class="carousel-image" />
+        <img src="assets/IMG/img-capoeira3.jpg" alt="Crianças praticando capoeira" class="carousel-image" />
       </div>
 
       <div class="container">
@@ -82,7 +85,7 @@
       <div class="container">
         <h2>Sobre o Projeto</h2>
         <div class="subsecao">
-          <img src="assets/logo-capoeira-viva.jpg" alt="Evento cultural de roda aberta de capoeira" class="img-ajustada" />
+          <img src="assets/IMG/logo-capoeira-viva.jpg" alt="Evento cultural de roda aberta de capoeira" class="img-ajustada" />
 
           <h3>Missão e Valores</h3>
           <p>
@@ -156,7 +159,7 @@
             digital.
           </p>
           <div class="card-depoimento">
-            <img src="assets/pessoas.jpg" alt="" class="foto-mestre" />
+            <img src="assets/IMG/pessoas.jpg" alt="" class="foto-mestre" />
             <div class="texto-depoimento">
               <blockquote>
                 Almir Farias Barros iniciou na Capoeira em 1987, com o Mestre Negrito.
@@ -185,14 +188,14 @@
             Leia a biografia do Mestre André Silva Mendes, um dos principais responsáveis pela
             disseminação da capoeira na cidade.
           </strong></p>
-          <a href="assets/Biografia_Andre_Silva_Mendes.pdf" target="_blank" class="lista-btn">Acessar biografia</a>
+          <a href="assets/PDF/Biografia_Andre_Silva_Mendes.pdf" target="_blank" class="lista-btn">Acessar biografia</a>
           <br>
           <br>
           <p><strong>
             Leia também a biografia do Contra-Mestre Almir Farias Barros, que tem uma
             trajetória marcante na capoeira pontenovense.
           </strong></p>
-          <a href="assets/Biografia_Almir_Farias_Barros.pdf" target="_blank" class="lista-btn">Acessar biografia</a>
+          <a href="assets/PDF/Biografia_Almir_Farias_Barros.pdf" target="_blank" class="lista-btn">Acessar biografia</a>
 
         </div>
         <div class="subsecao">
@@ -228,6 +231,82 @@
       </div>
     </section>
 
+    <!-- Swiper Capoeira -->
+<section class="swiper-capoeira fade-in">
+  <div class="container">
+    <div class="swiper-container swiper-capoeira-container">
+      <div class="swiper-wrapper">
+        <!-- Slide 1 -->
+        <div class="swiper-slide">
+          <div class="slide-card">
+            <img src="assets/IMG/img-capoeira1.jpg" alt="Roda de capoeira tradicional" class="slide-image">
+            <div class="slide-content">
+              <h3>Roda Tradicional</h3>
+              <p>As rodas de capoeira são a essência dessa manifestação cultural, onde mestres e alunos se reúnem para jogar, cantar e tocar.</p>
+              <a href="#participe" class="slide-btn">Participar</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Slide 2 -->
+        <div class="swiper-slide">
+          <div class="slide-card">
+            <img src="assets/IMG/img-capoeira2.jpg" alt="Oficina de berimbau" class="slide-image">
+            <div class="slide-content">
+              <h3>Oficina de Instrumentos</h3>
+              <p>Aprenda a construir e tocar berimbau, pandeiro e atabaque, os instrumentos que dão o ritmo para a capoeira.</p>
+              <a href="#educacao" class="slide-btn">Saiba mais</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Slide 3 -->
+        <div class="swiper-slide">
+          <div class="slide-card">
+            <img src="assets/IMG/img-capoeira3.jpg" alt="Aula de capoeira para crianças" class="slide-image">
+            <div class="slide-content">
+              <h3>Capoeira Infantil</h3>
+              <p>Projetos especiais para crianças, desenvolvendo coordenação motora, disciplina e conhecimento da cultura afro-brasileira.</p>
+              <a href="#educacao" class="slide-btn">Conhecer</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Slide 4 -->
+        <div class="swiper-slide">
+          <div class="slide-card">
+            <img src="assets/IMG/logo-capoeira-viva.jpg" alt="Eventos culturais de capoeira" class="slide-image">
+            <div class="slide-content">
+              <h3>Eventos Culturais</h3>
+              <p>Participação em festivais, apresentações e eventos que celebram a cultura negra e a tradição da capoeira em Ponte Nova.</p>
+              <a href="#noticias" class="slide-btn">Ver eventos</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Slide 5 -->
+        <div class="swiper-slide">
+          <div class="slide-card">
+            <img src="assets/IMG/pessoas.jpg" alt="Mestres de capoeira" class="slide-image">
+            <div class="slide-content">
+              <h3>Mestres e Contramestres</h3>
+              <p>Conheça a trajetória dos mestres que preservam e transmitem os conhecimentos da capoeira para as novas gerações.</p>
+              <a href="#plataforma" class="slide-btn">Conhecer</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Paginação -->
+      <div class="swiper-pagination capoeira-swiper-pagination"></div>
+      
+      <!-- Botões de navegação -->
+      <div class="swiper-button-next capoeira-swiper-button-next"></div>
+      <div class="swiper-button-prev capoeira-swiper-button-prev"></div>
+    </div>
+  </div>
+</section>
+
     <!-- EDUCAÇÃO E FORMAÇÃO -->
     <section id="educacao" class="educacao fade-in">
       <div class="container">
@@ -258,9 +337,9 @@
             <li>Jogo: Quiz da Capoeira</li>
           <a href="https://pt.quizur.com/trivia/quiz-voce-realmente-aprendeu-tudo-sobre-a-capoeira-PRho" class="lista-btn">Acessar</a>
             <li>Cartilha: Introdução à Capoeira</li>
-          <a href="assets/iniciacao_capoeira.pdf" target="_blank" class="lista-btn">Acessar</a>
+          <a href="assets/PDF/iniciacao_capoeira.pdf" target="_blank" class="lista-btn">Acessar</a>
             <li>Plano de Aula: História e Ritmo</li>
-          <a href="assets/plano_aula_capoeira.pdf" target="_blank" class="lista-btn">Acessar</a>
+          <a href="assets/PDF/plano_aula_capoeira.pdf" target="_blank" class="lista-btn">Acessar</a>
 
           </ul>
         </div>
@@ -272,7 +351,7 @@
             Acompanhe as oficinas, vivências e formações oferecidas pelo projeto. Aprenda na prática com
             mestres e educadores que trazem a capoeira como ferramenta de ensino e inclusão.
           </p>
-                       <img src="assets/imagem-roda.jpg" alt="Crianças praticando capoeira" class="img-esquerda" />
+                       <img src="assets/IMG/imagem-roda.jpg" alt="Crianças praticando capoeira" class="img-esquerda" />
 
         </div>
         <div class="subsecao">
