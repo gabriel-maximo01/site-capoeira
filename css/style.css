@@ -1,6 +1,6 @@
-/* ============================
+/* 
    CAPOEIRA VIVA - STYLE.CSS
-   ============================ */
+ */
 
 /* Rodapé sempre no final da página */
 html, body {
@@ -510,10 +510,66 @@ footer {
   animation-play-state: paused;
 }
 
-/* === Responsividade === */
-/* Responsividade - Menu Hamburguer */
-/* === RESPONSIVIDADE - DEPOIMENTOS MOBILE === */
+/* RESPONSIVIDADE MOBILE  */
 @media (max-width: 768px) {
+  /* Ajuste de tamanhos de fonte para mobile */
+  .participe, .noticias, .subsecao p, .subsecao ul, .intro p, .hero p {
+    font-size: 1.1rem !important;
+  }
+  
+  /* Melhorias de espaçamento para mobile */
+  section {
+    padding: 2.5rem 0;
+  }
+  
+  .container {
+    width: 85%;
+    padding: 0 10px;
+  }
+  
+  h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 12px;
+  }
+  
+  h2::after {
+    width: 60px;
+    height: 3px;
+  }
+  
+  .subsecao h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    padding-left: 12px;
+  }
+  
+  .subsecao {
+    margin-bottom: 2.2rem;
+  }
+  
+  /* Melhorias de toque para botões */
+  .btn {
+    padding: 0.9rem 1.6rem;
+    min-width: 44px; /* Tamanho mínimo para toque */
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .cta-buttons {
+    gap: 0.8rem;
+  }
+  
+  .lista-btn {
+    padding: 10px 16px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
   .card-depoimento {
     max-height: 300px;
     overflow-y: auto;
@@ -569,6 +625,8 @@ footer {
 
   .menu-toggle {
     display: block;
+    width: 44px;
+    height: 44px;
   }
 
   .nav-menu {
@@ -618,6 +676,11 @@ footer {
     color: white;
     text-decoration: none;
     font-weight: bold;
+    font-size: 1.1rem;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .nav-menu li a:hover {
@@ -655,10 +718,6 @@ footer {
 
   .noticias {
     background-color: #fff5f5;
-  }
-
-  .noticias p {
-    font-size: 1.3rem;
   }
 
   .lista-noticias {
@@ -714,7 +773,6 @@ footer {
   .participe p {
     max-width: 800px;
     margin: 0 auto 1rem auto;
-    font-size: 1.3rem;
   }
 
   .participe h3 {
@@ -791,6 +849,44 @@ footer {
     height: 44px;
     font-size: 1.5rem;
   }
+  
+  /* Ajustes de imagens para mobile */
+  .img-ajustada {
+    max-width: 85%;
+    margin: 15px auto;
+  }
+  
+  .img-esquerda {
+    max-width: 100%;
+    float: none;
+    margin: 0 auto 20px auto;
+    display: block;
+  }
+  
+  /* Melhorias no carrossel para mobile */
+  .carrossel-item iframe {
+    height: 220px;
+  }
+  
+  .btns {
+    padding: 10px 16px;
+    font-size: 20px;
+  }
+  
+  /* Ajustes de texto para melhor legibilidade */
+  .texto-depoimento blockquote {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  /* Melhorias de espaçamento para elementos de lista */
+  .subsecao ul {
+    padding-left: 1.2rem;
+  }
+  
+  .subsecao ul li {
+    margin-bottom: 0.8rem;
+  }
 }
 
 /* Para telas muito pequenas, ajustes adicionais */
@@ -803,6 +899,39 @@ footer {
   .texto-depoimento blockquote {
     font-size: 0.9rem;
     line-height: 1.5;
+  }
+  
+  h2 {
+    font-size: 1.9rem;
+  }
+  
+  .hero h1 {
+    font-size: 2.8rem;
+  }
+  
+  .hero p {
+    font-size: 1.1rem;
+  }
+  
+  .cta-buttons {
+    gap: 0.6rem;
+  }
+  
+  .btn {
+    padding: 0.8rem 1.2rem;
+    font-size: 0.9rem;
+  }
+  
+  .carrossel-item iframe {
+    height: 200px;
+  }
+  
+  .slide-content h3 {
+    font-size: 1.2rem;
+  }
+  
+  .slide-content p {
+    font-size: 0.9rem;
   }
 }
 
@@ -1025,7 +1154,7 @@ footer {
 /* fotinhas*/
 .swiper-capoeira {
   padding: 4rem 0;
-  background: #f5e9da; /* mesmo fundo do site */
+  background: #f5e9da; /* mesmo fundo del site */
 }
 
 .swiper-container {
