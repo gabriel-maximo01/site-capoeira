@@ -13,6 +13,13 @@ body {
   flex-direction: column;
 }
 
+/*gambiarra tamanho de letra*/
+.participe{
+  font-size: 1.3rem;
+}
+.noticias{
+  font-size: 1.3rem;
+}
 /* Importante! antes de usar, lembra de incluir as fontes no HTML:
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&family=Saira+Condensed&display=swap" rel="stylesheet" />
 */
@@ -31,6 +38,7 @@ body {
 main {
   flex: 1 0 auto;
 }
+
 
 footer, .rodape {
   flex-shrink: 0;
@@ -649,6 +657,10 @@ footer {
     background-color: #fff5f5;
   }
 
+  .noticias p {
+    font-size: 1.3rem;
+  }
+
   .lista-noticias {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -681,6 +693,7 @@ footer {
   .card-noticia p {
     flex-grow: 1;
     margin: 0 1rem 1rem 1rem;
+    
   }
 
   .card-noticia .btn {
@@ -701,11 +714,13 @@ footer {
   .participe p {
     max-width: 800px;
     margin: 0 auto 1rem auto;
+    font-size: 1.3rem;
   }
 
   .participe h3 {
     color: #B71C1C;
     margin-top: 2rem;
+    
   }
 
   .participe a {
