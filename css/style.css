@@ -288,7 +288,7 @@ header.scrolled .logo {
   pointer-events: none;
 }
 
-/* Container pra imagens do carrossel */
+/* Container pra imagens del carrossel */
 .hero-carousel {
   position: absolute;
   top: 0;
@@ -644,12 +644,16 @@ footer {
     transform: translateX(100%); /* Inicia fora da tela */
     transition: transform 0.4s ease, opacity 0.4s ease;
     opacity: 0;
+    /* Previne scroll do body quando menu está aberto */
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
   }
 
   .nav-menu.active {
     transform: translateX(0); /* Entra na tela */
     opacity: 1;
     animation: slideInRight 0.4s ease forwards;
+    display: flex !important;
   }
 
   .nav-menu.closing {

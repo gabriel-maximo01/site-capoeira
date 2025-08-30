@@ -19,15 +19,23 @@ menuToggle.addEventListener('click', () => {
     const firstLink = navMenu.querySelector('a');
     if (firstLink) firstLink.focus();
   }
+  
+  // Previne scroll do body quando menu está aberto
+  if (navMenu.classList.contains('active')) {
+    document.body.style.overflow = 'hidden';
+  } else {
+    document.body.style.overflow = '';
+  }
 });
 
-// Fecha menu no mobile com o link
-document.querySelectorAll('.nav-menu a[href^="#"]').forEach(anchor => {
+// Fecha menu no mobile com o link (MODIFICADO: agora para todos os links)
+document.querySelectorAll('.nav-menu a').forEach(anchor => {
   anchor.addEventListener('click', function () {
     if (navMenu.classList.contains('active')) {
       navMenu.classList.remove('active');
       menuToggle.classList.remove('active');
       menuToggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = ''; // Restaura scroll do body
     }
   });
 });
@@ -39,6 +47,7 @@ document.addEventListener('keydown', function(e) {
     menuToggle.classList.remove('active');
     menuToggle.setAttribute('aria-expanded', 'false');
     menuToggle.focus();
+    document.body.style.overflow = ''; // Restaura scroll do body
   }
 });
 
