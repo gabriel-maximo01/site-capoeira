@@ -1,8 +1,7 @@
-/* 
+/* ============================
    CAPOEIRA VIVA - STYLE.CSS
- */
+   ============================ */
 
-/* Rodapé sempre no final da página */
 html, body {
   height: 100%;
 }
@@ -38,7 +37,6 @@ body {
 main {
   flex: 1 0 auto;
 }
-
 
 footer, .rodape {
   flex-shrink: 0;
@@ -121,7 +119,7 @@ body.home {
 
 /* Cabeçalho (pra não falar palavrão) */
 header {
-  background: transparent;
+  background: rgba(0, 0, 0, 0.3); /* Preto com 30% de opacidade */
   color: white;
   padding: 1rem 0;
   position: fixed;
@@ -133,7 +131,7 @@ header {
   box-shadow: none;
   transition: background-color 0.35s, box-shadow 0.35s, height 0.3s, padding 0.3s;
   height: 80px;
-  backdrop-filter: none;
+  backdrop-filter: blur(4px); /* Efeito de desfoque suave */
 }
 
 header.scrolled {
@@ -141,7 +139,7 @@ header.scrolled {
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
   height: 60px;
   padding: 0.6rem 0;
-  backdrop-filter: saturate(120%) blur(4px);
+  backdrop-filter: none; /* Remove o desfoque quando scrolled */
 }
 
 .logo {
@@ -403,7 +401,6 @@ h2::after {
 .subsecao  p {
   font-size: 1.3rem;
 }
-
 
 .subsecao h3 {
   color: #7f1212;
@@ -713,7 +710,6 @@ footer {
 
   .educacao ul li {
     margin-bottom: 0.5rem;
-    font-weight: 500;
   }
 
   .noticias {
@@ -988,7 +984,7 @@ footer {
   max-width: 400px;     /* evita que fique gigante */
   width: 100%;          /* adapta no celular */
   height: auto;         /* mantém proporção */          /* joga a imagem pra esquerda */
-  margin: 0 20px 20px 0; /* espaço a direita e embaixo pra não grudar no texto */
+  margin: 0 20px 20px 0; /* espaço a direita and embaixo pra não grudar no texto */
   border-radius: 5px;   /* cantos arredondados */
   box-shadow: 0 4px 10px rgba(0,0,0,0.25); /* sombrazinha suave */
   
@@ -1178,7 +1174,7 @@ footer {
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  height: 100%; /* ocupa toda a altura do slide */
+  height: 100%; /* ocupa toda a altura del slide */
   display: flex;
   flex-direction: column;
   width: 100%; /* garante que ocupe toda a largura */
@@ -1322,5 +1318,42 @@ footer {
   .capoeira-swiper-button-next,
   .capoeira-swiper-button-prev {
     display: none;
+  }
+}
+
+/* HISTÓRIA  ESTILOS ESPECIFICOS */
+#historia {
+ background-color: #f5e9da;
+;
+}
+
+#historia h2 {
+  color: #B71C1C;
+}
+
+#historia .subsecao h3 {
+  color: #7f1212;
+}
+
+#historia .subsecao ul {
+  padding-left: 1.5rem;
+  list-style: disc;
+  font-size: 1.3rem;
+}
+
+#historia .subsecao ul li {
+  margin-bottom: 0.6rem;
+  color: #1C1C1C;
+}
+
+/* seção de história no mobile */
+@media (max-width: 768px) {
+  #historia .subsecao p,
+  #historia .subsecao ul {
+    font-size: 1.1rem !important;
+  }
+  
+  #historia .subsecao h3 {
+    font-size: 1.8rem;
   }
 }
