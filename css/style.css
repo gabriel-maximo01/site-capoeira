@@ -682,11 +682,26 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100%; /* Garante que ocupe toda a largura */
+    box-sizing: border-box; /* Inclui padding na largura total */
   }
 
   .nav-menu li a:hover {
     background-color: rgba(255, 255, 255, 0.1);
   }
+  
+  /* CORREÇÃO: Garantir que todos os itens do menu fiquem um embaixo do outro */
+  .nav-menu {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .nav-menu li {
+    display: block;
+    width: 100%;
+    margin: 0;
+  }
+  
   .cta-buttons {
     flex-direction: column;
     align-items: center;
@@ -1227,18 +1242,17 @@ footer {
   font-weight: bold;
   text-align: center;
   transition: background-color 0.3s ease;
-  margin-top: auto; /* Empurra o botão para baixo */
-
+  margin-top: auto; /* empurra o botão pra baixo */
 }
 
 .slide-btn:hover {
   background-color: #8B0000;
 }
 
-/* Navegação do Swiper */
-.capoeira-swiper-button-next,
-.capoeira-swiper-button-prev {
-  color: #B71C1C !important;
+/* Botões de navegação del Swiper */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #B71C1C;
   background: rgba(255, 255, 255, 0.8);
   width: 50px;
   height: 50px;
@@ -1247,117 +1261,444 @@ footer {
   transition: all 0.3s ease;
 }
 
-/* animação para os botões de navegação */
-.capoeira-swiper-button-next:hover,
-.capoeira-swiper-button-prev:hover {
-  transform: scale(1.15);
-  background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 4px 15px rgba(183, 28, 28, 0.3);
-}
-
-.capoeira-swiper-button-next:active,
-.capoeira-swiper-button-prev:active {
-  transform: scale(0.95);
-}
-
-.capoeira-swiper-button-next:after,
-.capoeira-swiper-button-prev:after {
+.swiper-button-next:after,
+.swiper-button-prev:after {
   font-size: 24px;
   font-weight: bold;
-  transition: transform 0.2s ease;
 }
 
-.capoeira-swiper-button-next:hover:after {
-  transform: translateX(2px);
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background: white;
+  transform: scale(1.1);
 }
 
-.capoeira-swiper-button-prev:hover:after {
-  transform: translateX(-2px);
-}
-
-.capoeira-swiper-pagination .swiper-pagination-bullet {
-  width: 12px;
-  height: 12px;
+/* Paginação del Swiper */
+.swiper-pagination-bullet {
   background: #B71C1C;
   opacity: 0.5;
-  transition: all 0.3s ease;
+  width: 12px;
+  height: 12px;
+  margin: 0 8px;
 }
 
-.capoeira-swiper-pagination .swiper-pagination-bullet:hover {
-  transform: scale(1.2);
-  opacity: 0.8;
-}
-
-.capoeira-swiper-pagination .swiper-pagination-bullet-active {
+.swiper-pagination-bullet-active {
   opacity: 1;
-  transform: scale(1.3);
+  background: #FFC107;
 }
 
-/* remover espaçamento entre carrossel e swiper */
-.plataforma + .swiper-capoeira {
-  padding-top: 0 !important;
-  margin-top: -2rem !important;
-}
-
-/* ajusta posicionamento do titulo do swiper */
-.swiper-capoeira h2 {
-  margin-top: 0;
-  padding-top: 1.5rem;
-}
-
-/* Responsividade */
+/* Responsividade pra mobile */
 @media (max-width: 768px) {
+  .swiper-slide {
+    width: 85%; /* slides mais estreitos em mobile */
+    margin: 0 auto;
+  }
+  
   .slide-image {
     height: 180px;
   }
   
   .slide-content h3 {
-    min-height: auto; /* remove altura minima mobile */
+    font-size: 1.2rem;
+    min-height: 2.5rem;
   }
   
   .slide-content p {
-    min-height: auto; /* remove altura minima mobile */
+    font-size: 0.9rem;
+    min-height: 4rem;
   }
   
-  .capoeira-swiper-button-next,
-  .capoeira-swiper-button-prev {
-    display: none;
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: none; /* esconde setas em mobile */
   }
 }
 
-/* HISTÓRIA  ESTILOS ESPECIFICOS */
-#historia {
- background-color: #f5e9da;
-;
+/* Estilos para o formulário de contato */
+.formulario-contato {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-#historia h2 {
+.formulario-contato h3 {
   color: #B71C1C;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
 }
 
-#historia .subsecao h3 {
-  color: #7f1212;
+.form-grupo {
+  margin-bottom: 1.5rem;
 }
 
-#historia .subsecao ul {
-  padding-left: 1.5rem;
-  list-style: disc;
-  font-size: 1.3rem;
+.form-grupo label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #333;
 }
 
-#historia .subsecao ul li {
-  margin-bottom: 0.6rem;
-  color: #1C1C1C;
+.form-grupo input,
+.form-grupo textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
 }
 
-/* seção de história no mobile */
+.form-grupo input:focus,
+.form-grupo textarea:focus {
+  outline: none;
+  border-color: #B71C1C;
+}
+
+.form-grupo textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.btn-enviar {
+  background-color: #B71C1C;
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: block;
+  width: 100%;
+}
+
+.btn-enviar:hover {
+  background-color: #8B0000;
+}
+
+/* Mensagens de status do formulário */
+.mensagem-status {
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.mensagem-sucesso {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.mensagem-erro {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+/* Responsividade do formulário */
 @media (max-width: 768px) {
-  #historia .subsecao p,
-  #historia .subsecao ul {
-    font-size: 1.1rem !important;
+  .formulario-contato {
+    padding: 1.5rem;
+    margin: 0 1rem;
+  }
+}
+
+/* Estilos para a galeria de fotos */
+.galeria {
+  padding: 4rem 0;
+  background: #f5e9da;
+}
+
+.galeria h2 {
+  margin-bottom: 2rem;
+}
+
+.container-galeria {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.grid-galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.item-galeria {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  aspect-ratio: 4/3;
+}
+
+.item-galeria:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.item-galeria img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.item-galeria:hover img {
+  transform: scale(1.05);
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.8));
+  padding: 1rem;
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  transform: translateY(20px);
+}
+
+.item-galeria:hover .overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.titulo-foto {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.data-foto {
+  margin: 0.3rem 0 0 0;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* Modal da galeria */
+.modal-galeria {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.9);
+  z-index: 3000;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.modal-galeria.mostrar {
+  display: flex;
+  opacity: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+.conteudo-modal {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.imagem-modal {
+  max-width: 100%;
+  max-height: 80vh;
+  border-radius: 8px;
+}
+
+.fechar-modal {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+}
+
+.info-modal {
+  color: white;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+/* Responsividade da galeria */
+@media (max-width: 768px) {
+  .grid-galeria {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
   }
   
-  #historia .subsecao h3 {
-    font-size: 1.8rem;
+  .overlay {
+    padding: 0.8rem;
+  }
+  
+  .titulo-foto {
+    font-size: 1rem;
+  }
+  
+  .data-foto {
+    font-size: 0.8rem;
+  }
+}
+
+/* Animações para a galeria */
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.item-galeria {
+  animation: fadeInScale 0.5s ease forwards;
+}
+
+/* Lightbox personalizado */
+.lightbox-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 4000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.lightbox-container.ativo {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.lightbox-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.lightbox-img {
+  max-width: 100%;
+  max-height: 80vh;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.lightbox-fechar {
+  position: absolute;
+  top: -50px;
+  right: 0;
+  color: white;
+  font-size: 3rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-navegacao {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  padding: 0 2rem;
+}
+
+.lightbox-btn {
+  background: rgba(255,255,255,0.2);
+  color: white;
+  border: none;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  font-size: 2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+.lightbox-btn:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+.lightbox-info {
+  position: absolute;
+  bottom: -60px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: white;
+}
+
+/* Loading para imagens */
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(255,255,255,0.3);
+  border-radius: 50%;
+  border-top-color: #FFC107;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* responsividade do lightbox */
+@media (max-width: 768px) {
+  .lightbox-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+  
+  .lightbox-navegacao {
+    padding: 0 1rem;
+  }
+  
+  .lightbox-fechar {
+    top: -40px;
+    font-size: 2.5rem;
   }
 }
